@@ -1,5 +1,5 @@
-var rez = 20;
-var gameWidth = 1200;
+var rez = 40;
+var gameWidth = 1000;
 var gameHeight = 800;
 
 var xStart;
@@ -27,7 +27,7 @@ function setup() {
     noStroke();
     textSize(24);
     textAlign(CENTER, CENTER);
-    frameRate(10);
+    frameRate(8);
     setupSnake();
 }
 
@@ -75,7 +75,7 @@ function draw() {
         }
     } else {
         fill(255);
-        text("Press any key to start", width / 2, height / 2);
+        text("Press any key to start", width / 2, height - 50);
     }
     drawSnake();
 }

@@ -27,7 +27,7 @@ function setup() {
     noStroke();
     textSize(24);
     textAlign(CENTER, CENTER);
-    frameRate(8);
+    frameRate(10);
     setupSnake();
 }
 

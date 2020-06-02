@@ -16,20 +16,30 @@ body {
 
 header {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .game-header {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .game-header h1 {
+    margin-left: 50px;
     margin-right: 50px;
+    letter-spacing: 0.1em;
+}
+
+.game-header .icon-container {
+    flex: 0.5;
+    text-align: right;
+}
+
+.game-header p {
+    flex: 0.5;
+    text-align: left;
 }
 
 .icon-container {

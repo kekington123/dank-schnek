@@ -19,6 +19,7 @@ var yFruit;
 var score = 0;
 
 var gameStarted;
+var firstGame = true;
 
 function setup() {
     createCanvas(gameWidth, gameHeight);
@@ -32,10 +33,10 @@ function setup() {
 }
 
 function setupSnake() {
-    xStart = 10 * rez;
+    xStart = 3 * rez;
     yStart = gameHeight / 2;
 
-    length = 10;
+    length = 3;
     xPos = [];
     yPos = [];
 
@@ -45,9 +46,6 @@ function setupSnake() {
 
     xFruit = 0;
     yFruit = 0;
-
-    score = 0;
-    scoreP.html("Score: " + score);
     gameStarted = false;
 
     for (i = 0; i < length; i++) {
@@ -71,11 +69,24 @@ function draw() {
             placeFruit();
         }
         if (checkCollision() == true) {
+            firstGame = false;
             setupSnake();
         }
     } else {
         fill(255);
-        text("Press any key to start", width / 2, height - 50);
+        if (firstGame) {
+            text(
+                "Press spacebar to start\nEat the red thingies and stuff",
+                width / 2,
+                height - 50
+            );
+        } else {
+            text(
+                "Unlucky!\nPress spacebar to start\nEat the red thingies and stuff",
+                width / 2,
+                height - 50
+            );
+        }
     }
     drawSnake();
 }
@@ -139,19 +150,21 @@ function changeDirection() {
 }
 
 function keyPressed() {
-    if (gameStarted == false) {
+    if (gameStarted == false && keyCode == 32) {
+        score = 0;
+        scoreP.html("Score: " + score);
         gameStarted = true;
     }
-    if (keyCode == RIGHT_ARROW) {
+    if (keyCode == RIGHT_ARROW && gameStarted) {
         direction = "right";
     }
-    if (keyCode == LEFT_ARROW) {
+    if (keyCode == LEFT_ARROW && gameStarted) {
         direction = "left";
     }
-    if (keyCode == UP_ARROW) {
+    if (keyCode == UP_ARROW && gameStarted) {
         direction = "up";
     }
-    if (keyCode == DOWN_ARROW) {
+    if (keyCode == DOWN_ARROW && gameStarted) {
         direction = "down";
     }
 }

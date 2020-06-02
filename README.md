@@ -1,2 +1,5 @@
 # dank-schnek
-dank schnek the game
+
+Dank Schnek the game
+WIP and really scuffed
+Play at https://kekingtonxd.github.io/dank-schnek
